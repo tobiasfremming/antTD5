@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Map1 extends Map {
     private final int ROAD_WIDTH = 10;
-    private final int DELTA_ROAD  = 10;
+    private final int DELTA_ROAD = 10;
 
     public Map1() {
         background = new Texture("mapR1.png");
