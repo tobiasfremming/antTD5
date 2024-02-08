@@ -34,6 +34,7 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
     private Texture backGround;
 
     private float money;
+    private float health;
 
     protected PlayState(GameStateManager gameStateManager, Map map) {
         super(gameStateManager);
@@ -43,6 +44,9 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
 
         this.map = map;
 
+        // Set the player's money and health
+        this.money = 0;
+        this.health = 100;
 
 
         cam.setToOrtho(false, TowerDefense.WIDTH, TowerDefense.HEIGHT);
