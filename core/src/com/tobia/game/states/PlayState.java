@@ -14,13 +14,18 @@ import com.tobia.game.entities.AntObserver;
 import com.tobia.game.entities.Beetle;
 import com.tobia.game.entities.Cannon;
 import com.tobia.game.entities.Enemy;
+import com.tobia.game.entities.Wasp;
 import com.tobia.game.maps.Map;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
+/**
+ * PlayState is the state where the game is played. 
+ * It contains the map, enemies, cannons and buttons.
+ * 
+ */
 public class PlayState extends State implements AntObserver, ButtonObserver {
     private List<Enemy> enemies;
     private Map map;
