@@ -21,7 +21,7 @@ public abstract class Enemy {
     protected Vector3 velocity;
     protected Rectangle hitBox;
     protected Animation animation;
-    protected List<AntObserver> observers = new ArrayList<>();
+    protected List<EnemyObserver> observers = new ArrayList<>();
     protected long timeOfDeath;
     protected Texture texture;
     protected Vector3 position;
@@ -32,12 +32,12 @@ public abstract class Enemy {
     public abstract void update(float deltaTime, Map map);
 
 
-    public void attachObserver(AntObserver observer) {
+    public void attachObserver(EnemyObserver observer) {
         observers.add(observer);
     }
 
     public void notifyObservers(Enemy enemy) {
-        for (AntObserver observer : observers) {
+        for (EnemyObserver observer : observers) {
             observer.antDied(enemy);
         }
     }

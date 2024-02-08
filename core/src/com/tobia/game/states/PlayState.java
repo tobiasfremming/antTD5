@@ -10,7 +10,7 @@ import com.tobia.game.buttons.Button;
 import com.tobia.game.buttons.ButtonObserver;
 import com.tobia.game.buttons.PlaceTowerButton;
 import com.tobia.game.entities.Ant;
-import com.tobia.game.entities.AntObserver;
+import com.tobia.game.entities.EnemyObserver;
 import com.tobia.game.entities.Beetle;
 import com.tobia.game.entities.Cannon;
 import com.tobia.game.entities.Enemy;
@@ -26,7 +26,7 @@ import java.util.Random;
  * It contains the map, enemies, cannons and buttons.
  * 
  */
-public class PlayState extends State implements AntObserver, ButtonObserver {
+public class PlayState extends State implements EnemyObserver, ButtonObserver {
     private List<Enemy> enemies;
     private Map map;
     private List<Cannon> cannons;

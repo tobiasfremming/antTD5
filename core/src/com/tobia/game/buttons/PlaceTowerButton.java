@@ -3,7 +3,7 @@ package com.tobia.game.buttons;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
-import com.tobia.game.entities.AntObserver;
+import com.tobia.game.entities.EnemyObserver;
 import com.tobia.game.states.GameStateManager;
 import com.tobia.game.states.PlayState;
 

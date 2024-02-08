@@ -1,6 +1,6 @@
 package com.tobia.game.entities;
 
-public interface AntObserver {
+public interface EnemyObserver {
     void antDied(Enemy enemy);
     void antReachedEnd(Enemy enemy);
 }
