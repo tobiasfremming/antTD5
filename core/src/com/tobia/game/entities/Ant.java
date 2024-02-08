@@ -21,7 +21,7 @@ public class Ant extends Enemy{
 
     public Ant(float x, float y, PlayState observer) {
 
-        texture = new Texture("antAnimation.png");
+        texture = TowerDefense.ANT_TEXTURE;
         speed = 50;
         cashForKill = 10;
         attack = 1;
@@ -78,7 +78,7 @@ public class Ant extends Enemy{
     protected void handleHit(int damage) {
         hitpoints -= damage;
         if (hitpoints <= 0){
-            this.texture = new Texture("deadAntAnimation.png");
+            texture = TowerDefense.DEAD_ANT_TEXTURE;
             animation = new Animation(new TextureRegion(texture), 4, 2.0f);
             hitBox = new Rectangle(position.x,position.y,(texture.getWidth()/4), texture.getHeight());
             timeOfDeath = System.currentTimeMillis();

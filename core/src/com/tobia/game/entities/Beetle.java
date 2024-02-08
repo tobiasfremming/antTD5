@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
+import com.tobia.game.TowerDefense;
 import com.tobia.game.maps.Map;
 import com.tobia.game.states.PlayState;
 
@@ -11,18 +12,19 @@ public class Beetle extends Enemy{
 
     public Beetle(float x, float y, PlayState observer) {
 
-        texture = new Texture("beetle.png");
+        texture = TowerDefense.BEETLE_TEXTURE;
         speed = 40;
         cashForKill = 20;
         attack = 5;
         hitpoints = 400;
         position = new Vector3(x, y, 0);
         velocity = new Vector3(0,0,0);
+        frameCount = 3;
 
         attachObserver(observer);
 
-        animation = new Animation(new TextureRegion(texture), 3, 2.0f);
-        hitBox = new Rectangle(x,y,(texture.getWidth()/3), texture.getHeight());
+        animation = new Animation(new TextureRegion(texture), frameCount, 2.0f);
+        hitBox = new Rectangle(x,y,(texture.getWidth()/frameCount), texture.getHeight());
 
     }
     @Override
@@ -58,9 +60,9 @@ public class Beetle extends Enemy{
 
         hitpoints -= damage;
         if (hitpoints <= 0){
-            this.texture = new Texture("deadBeetle.png");
-            animation = new Animation(new TextureRegion(texture), 3, 2.0f);
-            hitBox = new Rectangle(position.x,position.y,(texture.getWidth()/3), texture.getHeight());
+            texture = TowerDefense.DEAD_BEELTE_TEXTURE;
+            animation = new Animation(new TextureRegion(texture), frameCount, 2.0f);
+            hitBox = new Rectangle(position.x,position.y,(texture.getWidth()/frameCount), texture.getHeight());
             timeOfDeath = System.currentTimeMillis();
         }
 

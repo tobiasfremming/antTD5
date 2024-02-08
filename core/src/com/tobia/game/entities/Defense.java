@@ -23,6 +23,9 @@ public abstract class Defense {
 
     protected abstract void update(float deltaTime);
 
+    protected abstract boolean checkLoaded();
+
+
     public void update(float x, float y){
         position.set(x,y,0);
     }
@@ -35,9 +38,7 @@ public abstract class Defense {
         float y = rotation.y;
 
         double angleRadians = Math.atan2(y, x);
-
         float angleDegrees = (float) Math.toDegrees(angleRadians);
-
         return angleDegrees - 90;
 
     }
@@ -60,15 +61,8 @@ public abstract class Defense {
 
         }
     }
-    public boolean checkLoaded() {
-        long currentTime = System.currentTimeMillis();
 
-        if (currentTime - lastShotTime >= 2000) {
-            lastShotTime = currentTime;
-            return true;
-        }
-        return false;
-    }
+
     public void shoot(Enemy enemy){
         loaded = true;
         enemy.handleHit(damage);

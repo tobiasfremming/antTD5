@@ -26,6 +26,8 @@ public abstract class Enemy {
     protected Texture texture;
     protected Vector3 position;
 
+    protected int frameCount;
+
     protected abstract void handleHit(int damage);
     public abstract void update(float deltaTime, Map map);
 

@@ -21,6 +21,13 @@ public class TowerDefense extends ApplicationAdapter {
 
 	public static BitmapFont font;
 
+	public static final Texture ANT_TEXTURE = new Texture("antAnimation.png");
+	public static final Texture DEAD_ANT_TEXTURE = new Texture("deadAntAnimation.png");
+	public static final Texture BEETLE_TEXTURE = new Texture("beetleTexture.png");
+	public static final Texture DEAD_BEELTE_TEXTURE = new Texture("deadBeetleTexture.png");
+
+	public static final Texture CANNON_TEXTURE = new Texture("cannonAnimation.png");
+
 
 
 	private GameStateManager gameStateManager;
