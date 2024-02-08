@@ -67,6 +67,9 @@ public class PlayState extends State implements AntObserver, ButtonObserver {
         if (randomNumber == 1)
             return new Beetle(1,map.f(1), this);
 
+        if (randomNumber == 2)
+            return new Wasp(1,map.f(1), this);
+        
         return new Ant(1, map.f(1), this);
 
 
