@@ -1,0 +1,17 @@
+package com.tobia.game.entities;
+
+import com.badlogic.gdx.graphics.Texture;
+import com.tobia.game.states.GameStateManager;
+import com.tobia.game.states.State;
+
+import java.util.Stack;
+
+public class Textures {
+    public static final Texture ANT_TEXTURE = new Texture("antAnimation.png");
+    public static final Texture DEAD_ANT_TEXTURE = new Texture("deadAntAnimation.png");
+    public static final Texture BEETLE_TEXTURE = new Texture("beetle.png");
+    public static final Texture DEAD_BEELTE_TEXTURE = new Texture("deadBeetle.png");
+    public static final Texture CANNON_TEXTURE = new Texture("cannonAnimation.png");
+
+
+}

@@ -19,7 +19,7 @@ public class Cannon extends Defense {
         rotation  = 0;
         lastShotTime = System.currentTimeMillis();
         rangeCircle = new Rectangle(position.x- range/2, position.y- range/2, range, range);
-        texture = TowerDefense.CANNON_TEXTURE;
+        texture = Textures.CANNON_TEXTURE;
 
         cannonAnimation = new Animation(new TextureRegion(texture), 5, 1.0f);
         hitBox = new Rectangle(x,y,(texture.getWidth()/5), texture.getHeight()/2);

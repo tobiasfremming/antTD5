@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.tobia.game.entities.Textures;
 import com.tobia.game.states.GameStateManager;
 import com.tobia.game.states.MenuState;
 
@@ -21,12 +22,6 @@ public class TowerDefense extends ApplicationAdapter {
 
 	public static BitmapFont font;
 
-	public static final Texture ANT_TEXTURE = new Texture("antAnimation.png");
-	public static final Texture DEAD_ANT_TEXTURE = new Texture("deadAntAnimation.png");
-	public static final Texture BEETLE_TEXTURE = new Texture("beetleTexture.png");
-	public static final Texture DEAD_BEELTE_TEXTURE = new Texture("deadBeetleTexture.png");
-
-	public static final Texture CANNON_TEXTURE = new Texture("cannonAnimation.png");
 
 
 
@@ -38,6 +33,7 @@ public class TowerDefense extends ApplicationAdapter {
 	public void create () {
 		font = new BitmapFont();
 		font.setColor(Color.WHITE);
+
 
 
 		batch = new SpriteBatch();

@@ -17,8 +17,6 @@ public class Map1 extends Map {
         System.out.println(background.getWidth());
         roadBoarders = new ArrayList<>();
 
-
-
         //target = new Border(TowerDefense.WIDTH -1, f(TowerDefense.WIDTH -1), 1, ROAD_WIDTH );
         for (int i = 0; i < TowerDefense.WIDTH -1; i+=DELTA_ROAD){
             roadBoarders.add(new Border(i, f(i), DELTA_ROAD, ROAD_WIDTH ));

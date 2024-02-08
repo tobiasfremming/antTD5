@@ -21,18 +21,19 @@ public class Ant extends Enemy{
 
     public Ant(float x, float y, PlayState observer) {
 
-        texture = TowerDefense.ANT_TEXTURE;
+        texture = Textures.ANT_TEXTURE;
         speed = 50;
         cashForKill = 10;
         attack = 1;
         hitpoints = 200;
         position = new Vector3(x, y, 0);
         velocity = new Vector3(0,0,0);
+        frameCount = 4;
 
         attachObserver(observer);
 
-        animation = new Animation(new TextureRegion(texture), 4, 2.0f);
-        hitBox = new Rectangle(x,y,(texture.getWidth()/4), texture.getHeight());
+        animation = new Animation(new TextureRegion(texture), frameCount, 2.0f);
+        hitBox = new Rectangle(x,y,(texture.getWidth()/frameCount), texture.getHeight());
 
     }
 
@@ -78,9 +79,9 @@ public class Ant extends Enemy{
     protected void handleHit(int damage) {
         hitpoints -= damage;
         if (hitpoints <= 0){
-            texture = TowerDefense.DEAD_ANT_TEXTURE;
-            animation = new Animation(new TextureRegion(texture), 4, 2.0f);
-            hitBox = new Rectangle(position.x,position.y,(texture.getWidth()/4), texture.getHeight());
+            texture = Textures.DEAD_ANT_TEXTURE;
+            animation = new Animation(new TextureRegion(texture), frameCount, 2.0f);
+            hitBox = new Rectangle(position.x,position.y,(texture.getWidth()/frameCount), texture.getHeight());
             timeOfDeath = System.currentTimeMillis();
             //notifyObservers();
         }

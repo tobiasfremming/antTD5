@@ -12,7 +12,7 @@ public class Beetle extends Enemy{
 
     public Beetle(float x, float y, PlayState observer) {
 
-        texture = TowerDefense.BEETLE_TEXTURE;
+        texture = Textures.BEETLE_TEXTURE;
         speed = 40;
         cashForKill = 20;
         attack = 5;
@@ -60,7 +60,7 @@ public class Beetle extends Enemy{
 
         hitpoints -= damage;
         if (hitpoints <= 0){
-            texture = TowerDefense.DEAD_BEELTE_TEXTURE;
+            texture = Textures.DEAD_BEELTE_TEXTURE;
             animation = new Animation(new TextureRegion(texture), frameCount, 2.0f);
             hitBox = new Rectangle(position.x,position.y,(texture.getWidth()/frameCount), texture.getHeight());
             timeOfDeath = System.currentTimeMillis();

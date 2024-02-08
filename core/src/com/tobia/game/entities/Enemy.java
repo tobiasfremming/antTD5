@@ -66,7 +66,7 @@ public abstract class Enemy {
     }
 
     public void dispose() {
-        texture.dispose();
+
     }
 
     public Vector3 getPosition(){
