@@ -197,4 +197,10 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
     public void pay(float payment){
         money -= payment;
     }
+
+    @Override
+    public void antReachedEnd(Enemy enemy) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'antReachedEnd'");
+    }
 }
