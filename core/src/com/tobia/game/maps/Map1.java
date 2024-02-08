@@ -9,15 +9,13 @@ import java.util.List;
 
 public class Map1 extends Map {
     private final int ROAD_WIDTH = 10;
-    private final int DELTA_ROAD  = 10;
+    private final int DELTA_ROAD = 10;
 
     public Map1() {
         background = new Texture("mapR1.png");
         System.out.println("bg:");
         System.out.println(background.getWidth());
         roadBoarders = new ArrayList<>();
-
-
 
         //target = new Border(TowerDefense.WIDTH -1, f(TowerDefense.WIDTH -1), 1, ROAD_WIDTH );
         for (int i = 0; i < TowerDefense.WIDTH -1; i+=DELTA_ROAD){
