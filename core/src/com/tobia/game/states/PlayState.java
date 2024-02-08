@@ -34,6 +34,7 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
     private Texture backGround;
 
     private float money;
+    private float health;
 
     protected PlayState(GameStateManager gameStateManager, Map map) {
         super(gameStateManager);
@@ -43,6 +44,9 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
 
         this.map = map;
 
+        // Set the player's money and health
+        this.money = 0;
+        this.health = 100;
 
 
         cam.setToOrtho(false, TowerDefense.WIDTH, TowerDefense.HEIGHT);
@@ -84,12 +88,7 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
     protected void handleInput() {
         if (Gdx.input.justTouched()){
             Enemy enemy = createRandomEnemy();
-
             enemies.add(enemy);
-
-
-
-
         }
     }
 
@@ -102,38 +101,25 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
         enemies.remove(enemy);
         money += enemy.getCashForKill();
         enemy.dispose();
-
     }
-
-
-
 
 
     @Override
     protected void update(float deltaTime) {
 
         handleInput();
-
         for (int i = 0; i<cannons.size(); i++){
             cannons.get(i).aim(enemies);
             cannons.get(i).update(deltaTime);
         }
 
-
         for (int i = 0; i< enemies.size(); i++){
             enemies.get(i).update(deltaTime, map);
         }
 
-
         cam.update();
-
         mouse.set(Gdx.input.getX(), Gdx.graphics.getHeight() - Gdx.input.getY(), 0);
-
         buttons.get(0).update(mouse);
-
-
-
-
     }
 
     @Override
