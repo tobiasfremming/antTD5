@@ -9,10 +9,9 @@ import com.tobia.game.states.PlayState;
 
 public class Beetle extends Enemy{
 
-
     public Beetle(float x, float y, PlayState observer) {
 
-        texture = new Texture("beatle.png");
+        texture = new Texture("beetle.png");
         speed = 40;
         cashForKill = 20;
         attack = 5;
@@ -59,7 +58,7 @@ public class Beetle extends Enemy{
 
         hitpoints -= damage;
         if (hitpoints <= 0){
-            this.texture = new Texture("deadBeatle.png");
+            this.texture = new Texture("deadBeetle.png");
             animation = new Animation(new TextureRegion(texture), 3, 2.0f);
             hitBox = new Rectangle(position.x,position.y,(texture.getWidth()/3), texture.getHeight());
             timeOfDeath = System.currentTimeMillis();
