@@ -19,7 +19,7 @@ public class Ant extends Enemy{
 
 
 
-    public Ant(float x, float y, PlayState observer) {
+    public Ant(float x, float y, EnemyObserver observer) {
 
         texture = Textures.ANT_TEXTURE;
         speed = 50;

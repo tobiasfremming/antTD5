@@ -15,7 +15,7 @@ public class Wasp extends Enemy {
     private static final int ENRAGEMENT_DURATION = 3000;
     private int lastAttackTime = 0;
 
-    public Wasp(float x, float y, PlayState observer) {
+    public Wasp(float x, float y, EnemyObserver observer) {
             
             texture = new Texture("deadBeetle.png");
             speed = DEFAULT_SPEED;

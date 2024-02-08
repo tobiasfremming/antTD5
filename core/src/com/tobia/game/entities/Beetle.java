@@ -10,7 +10,7 @@ import com.tobia.game.states.PlayState;
 
 public class Beetle extends Enemy{
 
-    public Beetle(float x, float y, PlayState observer) {
+    public Beetle(float x, float y, EnemyObserver observer) {
 
         texture = Textures.BEETLE_TEXTURE;
         speed = 40;
