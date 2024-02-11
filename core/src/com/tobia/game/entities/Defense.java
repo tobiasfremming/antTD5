@@ -15,13 +15,14 @@ public abstract class Defense {
     protected float rotation;
     protected Rectangle rangeCircle;
     protected long lastShotTime;
-    protected Animation cannonAnimation;
+    protected Animation animation;
     protected boolean loaded;
     protected Vector3 position;
     protected int range;
     protected Rectangle hitBox;
+    protected int frameCount = 1;
 
-    protected abstract void update(float deltaTime);
+    public abstract void update(float deltaTime);
 
     protected abstract boolean checkLoaded();
 
@@ -81,7 +82,7 @@ public abstract class Defense {
     }
 
     public TextureRegion getTexture() {
-        return cannonAnimation.getFrame();
+        return animation.getFrame();
     }
 
 

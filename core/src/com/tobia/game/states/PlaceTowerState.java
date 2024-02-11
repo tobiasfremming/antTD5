@@ -4,14 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
-import com.tobia.game.TowerDefense;
 import com.tobia.game.buttons.Button;
 import com.tobia.game.buttons.ButtonObserver;
 import com.tobia.game.buttons.PlaceTowerButton;
 import com.tobia.game.entities.Border;
 import com.tobia.game.entities.Cannon;
-import com.tobia.game.maps.Map;
-import com.tobia.game.maps.Map1;
+import com.tobia.game.entities.Defense;
+import com.tobia.game.entities.FlameThrower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,11 +24,10 @@ public class PlaceTowerState extends State implements ButtonObserver {
 
     private List<Button> buttons;
 
-    private Cannon newCannon;
+    private Defense newTower;
 
     protected PlaceTowerState(GameStateManager gameStateManager) {
         super(gameStateManager);
-        System.out.println("placetowerstate active");
 
 
         playState = gameStateManager.getPlayState();
@@ -38,7 +36,7 @@ public class PlaceTowerState extends State implements ButtonObserver {
 
 
         mouse = new Vector3(0,0,0);
-        newCannon = new Cannon(mouse.x, mouse.y);
+        newTower = new Cannon(mouse.x, mouse.y);
 
         hitboxList = new ArrayList<>();
         List <Border> borders= playState.getMap().getBorders();
@@ -46,9 +44,9 @@ public class PlaceTowerState extends State implements ButtonObserver {
             hitboxList.add(border.getHitBox());
 
         }
-        List <Cannon> cannonList = playState.getCannons();
-        for (Cannon cannon: cannonList){
-            hitboxList.add(cannon.getHitbox());
+        List <Defense> towerList = playState.getTowers();
+        for (Defense tower: towerList){
+            hitboxList.add(tower.getHitbox());
         }
 
 
@@ -59,10 +57,10 @@ public class PlaceTowerState extends State implements ButtonObserver {
 
     }
 
-    public Boolean checkAvailableSpot(Cannon cannon){
-        Rectangle cannonHitbox  = cannon.getHitbox();
+    public Boolean checkAvailableSpot(Defense cannon){
+        Rectangle towerHitbox  = cannon.getHitbox();
         for (Rectangle hitbox: hitboxList){
-            if (cannonHitbox.overlaps(hitbox)){
+            if (towerHitbox.overlaps(hitbox)){
                 return false;
             }
         }
@@ -73,7 +71,7 @@ public class PlaceTowerState extends State implements ButtonObserver {
     protected void handleInput() {
 
         if (Gdx.input.justTouched()){
-            Cannon cannon = new Cannon(mouse.x, mouse.y);
+            FlameThrower cannon = new FlameThrower(mouse.x, mouse.y);
             if (checkAvailableSpot(cannon)){
                 float cost = cannon.getCost();
                 if (playState.getMoney() >= cost){
@@ -95,7 +93,7 @@ public class PlaceTowerState extends State implements ButtonObserver {
 
         buttons.get(0).update(mouse);
 
-        newCannon.update(mouse.x, mouse.y);
+        newTower.update(mouse.x, mouse.y);
 
         handleInput();
 
@@ -109,7 +107,7 @@ public class PlaceTowerState extends State implements ButtonObserver {
         spriteBatch.setProjectionMatrix(cam.combined);
         spriteBatch.begin();
 
-        spriteBatch.draw(newCannon.getTexture(), newCannon.getPosition().x, newCannon.getPosition().y, newCannon.getTextureHitbox().width / 2, newCannon.getHitbox().height / 4, newCannon.getHitbox().width, newCannon.getHitbox().height *2, 1, 1, newCannon.getRotation());
+        spriteBatch.draw(newTower.getTexture(), newTower.getPosition().x, newTower.getPosition().y, newTower.getTextureHitbox().width / 2, newTower.getHitbox().height / 4, newTower.getHitbox().width, newTower.getHitbox().height *2, 1, 1, newTower.getRotation());
         spriteBatch.end();
 
 
@@ -128,7 +126,6 @@ public class PlaceTowerState extends State implements ButtonObserver {
 
     @Override
     public void justClicked() {
-        System.out.println("hei");
         gameStateManager.set(playState);
 
     }

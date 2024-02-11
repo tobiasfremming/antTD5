@@ -24,11 +24,12 @@ public class Wasp extends Enemy {
             hitpoints = 150;
             position = new Vector3(x, y, 0);
             velocity = new Vector3(0,0,0);
+            frameCount = 3;
     
             attachObserver(observer);
     
-            animation = new Animation(new TextureRegion(texture), 3, 2.0f);
-            hitBox = new Rectangle(x,y,(texture.getWidth()/3), texture.getHeight());
+            animation = new Animation(new TextureRegion(texture), frameCount, 2.0f);
+            hitBox = new Rectangle(x,y,(texture.getWidth()/frameCount), texture.getHeight());
     }
 
     @Override
@@ -67,8 +68,8 @@ public class Wasp extends Enemy {
         hitpoints -= damage;
         if (hitpoints <= 0){
             this.texture = new Texture("deadBeetle.png");
-            animation = new Animation(new TextureRegion(texture), 3, 2.0f);
-            hitBox = new Rectangle(position.x,position.y,(texture.getWidth()/3), texture.getHeight());
+            animation = new Animation(new TextureRegion(texture), frameCount, 2.0f);
+            hitBox = new Rectangle(position.x,position.y,(texture.getWidth()/frameCount), texture.getHeight());
             timeOfDeath = System.currentTimeMillis();
         }
     }

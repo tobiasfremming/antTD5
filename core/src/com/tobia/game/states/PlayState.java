@@ -10,6 +10,7 @@ import com.tobia.game.buttons.Button;
 import com.tobia.game.buttons.ButtonObserver;
 import com.tobia.game.buttons.PlaceTowerButton;
 import com.tobia.game.entities.Ant;
+import com.tobia.game.entities.Defense;
 import com.tobia.game.entities.EnemyObserver;
 import com.tobia.game.entities.Beetle;
 import com.tobia.game.entities.Cannon;
@@ -29,7 +30,7 @@ import java.util.Random;
 public class PlayState extends State implements EnemyObserver, ButtonObserver {
     private List<Enemy> enemies;
     private Map map;
-    private List<Cannon> cannons;
+    private List<Defense> towers;
     private List<Button> buttons;
     private Texture backGround;
 
@@ -59,10 +60,10 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
         enemies.add(ant1);
 
 
-        cannons = new ArrayList<>();
+        towers = new ArrayList<>();
         Cannon cannon1 = new Cannon(500,200);
-        cannons.add(cannon1);
-        cannons.add(new Cannon(700, 600));
+        towers.add(cannon1);
+        towers.add(new Cannon(700, 600));
 
         buttons = new ArrayList<>();
         buttons.add(new PlaceTowerButton(200, 10, this));
@@ -108,9 +109,9 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
     protected void update(float deltaTime) {
 
         handleInput();
-        for (int i = 0; i<cannons.size(); i++){
-            cannons.get(i).aim(enemies);
-            cannons.get(i).update(deltaTime);
+        for (int i = 0; i< towers.size(); i++){
+            towers.get(i).aim(enemies);
+            towers.get(i).update(deltaTime);
         }
 
         for (int i = 0; i< enemies.size(); i++){
@@ -132,7 +133,7 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
         for (Enemy ant: enemies){
            spriteBatch.draw(ant.getTexture(), ant.getPosition().x, ant.getPosition().y, ant.getHitbox().width / 2, ant.getHitbox().height / 2, ant.getHitbox().width, ant.getHitbox().height, 1, 1, ant.getRotation());
         }
-        for (Cannon cannon: cannons){
+        for (Defense cannon: towers){
             spriteBatch.draw(cannon.getTexture(), cannon.getPosition().x, cannon.getPosition().y, cannon.getTextureHitbox().width / 2, cannon.getHitbox().height / 4, cannon.getHitbox().width, cannon.getHitbox().height *2, 1, 1, cannon.getRotation());
         }
         for (Button button: buttons){
@@ -163,12 +164,12 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
         return enemies;
     }
 
-    public List<Cannon> getCannons() {
-        return cannons;
+    public List<Defense> getTowers() {
+        return towers;
     }
 
-    public void addCannons(Cannon cannon){
-        cannons.add(cannon);
+    public void addCannons(Defense tower){
+        towers.add(tower);
     }
 
 
