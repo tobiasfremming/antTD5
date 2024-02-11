@@ -39,7 +39,7 @@ public class TowerDefense extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		gameStateManager = GameStateManager.getInstance();
 		Gdx.gl.glClearColor(1,0,0,1);
-		gameStateManager.push(new MenuState(gameStateManager));
+		gameStateManager.push(new MenuState(gameStateManager));  // kan fjerne litt coupling ved å fjerne gamestateManager fra parameter siden gameStateManager er global
 	}
 
 	@Override
