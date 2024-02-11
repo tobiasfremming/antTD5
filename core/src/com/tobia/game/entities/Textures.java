@@ -10,5 +10,5 @@ public class Textures {
     public static final Texture CANNON_TEXTURE = new Texture("cannonAnimation.png");
     public static final Texture BACKGROUND = new Texture("backGround1.png");
     public static final Texture PLAY_BUTTON = new Texture("playBtn1.png");
-
+    public static final Texture GAME_OVER = new Texture("gameOver.png");
 }
