@@ -1,4 +1,4 @@
-package com.tobia.game.buttons;
+package com.tobia.game.Components;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;

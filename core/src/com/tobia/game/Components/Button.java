@@ -1,4 +1,4 @@
-package com.tobia.game.buttons;
+package com.tobia.game.Components;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -9,7 +9,7 @@ public abstract class Button {
     protected Rectangle hitBox;
     protected Vector3 position;
 
-    protected Texture texture;
+    public Texture texture;
 
     protected abstract void notifyObservers();
 
@@ -38,4 +38,5 @@ public abstract class Button {
     public Vector3 getPosition() {
         return position;
     }
+
 }

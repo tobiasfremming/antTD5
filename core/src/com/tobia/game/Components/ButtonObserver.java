@@ -1,4 +1,4 @@
-package com.tobia.game.buttons;
+package com.tobia.game.Components;
 
 public interface ButtonObserver {
     void justClicked();
