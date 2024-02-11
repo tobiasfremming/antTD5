@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Vector3;
 
 public class Cannon extends Defense {
     public Cannon(float x,float y) {
-        frameCount = 4;
+        frameCount = 5;
         cost = 50;
         damage = 100;
         readyToAnimate = false;

@@ -17,6 +17,7 @@ import com.tobia.game.entities.EnemyObserver;
 import com.tobia.game.entities.Cannon;
 import com.tobia.game.entities.Enemy;
 import com.tobia.game.entities.EnemyFactory;
+import com.tobia.game.entities.TowerFactory;
 import com.tobia.game.maps.Map;
 
 import java.util.ArrayList;
@@ -61,9 +62,8 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
 
 
         towers = new ArrayList<>();
-        Cannon cannon1 = new Cannon(500,200);
-        towers.add(cannon1);
-        towers.add(new Cannon(700, 600));
+        towers.add(TowerFactory.create(500,200,TowerType.CANNON));
+
 
         buttons = new ArrayList<>();
         buttons.add(new PlaceTowerButton(TowerDefense.WIDTH - 300, 10, this, TowerType.CANNON));

@@ -6,8 +6,6 @@ import com.badlogic.gdx.math.Vector3;
 import com.tobia.game.TowerDefense;
 
 public abstract class State {
-
-
     protected GameStateManager gameStateManager;
     protected OrthographicCamera cam;
     protected Vector3 mouse;
