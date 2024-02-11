@@ -15,6 +15,7 @@ import com.tobia.game.entities.EnemyObserver;
 import com.tobia.game.entities.Beetle;
 import com.tobia.game.entities.Cannon;
 import com.tobia.game.entities.Enemy;
+import com.tobia.game.entities.EnemyFactory;
 import com.tobia.game.entities.Wasp;
 import com.tobia.game.maps.Map;
 
@@ -69,26 +70,11 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
         buttons.add(new PlaceTowerButton(200, 10, this));
 
     }
-
-    public Enemy createRandomEnemy() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(0,3);
-
-        if (randomNumber == 1)
-            return new Beetle(1,map.f(1), this);
-
-        if (randomNumber == 2)
-            return new Wasp(1,map.f(1), this);
-        
-        return new Ant(1, map.f(1), this);
-
-
-    }
-
+    
     @Override
     protected void handleInput() {
         if (Gdx.input.justTouched()){
-            Enemy enemy = createRandomEnemy();
+            Enemy enemy = EnemyFactory.create(1,map.f(1), this);
             enemies.add(enemy);
         }
     }
