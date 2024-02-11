@@ -1,5 +1,7 @@
 package com.tobia.game.states;
 
+import com.tobia.game.Components.ButtonAction;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
@@ -7,6 +9,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.tobia.game.Components.Button;
 import com.tobia.game.Components.ButtonObserver;
 import com.tobia.game.Components.PlaceTowerButton;
+import com.tobia.game.TowerDefense;
 import com.tobia.game.entities.Border;
 import com.tobia.game.entities.Cannon;
 import com.tobia.game.entities.Defense;
@@ -18,6 +21,8 @@ import java.util.List;
 public class PlaceTowerState extends State implements ButtonObserver {
 
     PlayState playState;
+
+    ButtonAction buttonAction;
     List<Rectangle> hitboxList;
 
     Vector3 mouse;
@@ -26,13 +31,15 @@ public class PlaceTowerState extends State implements ButtonObserver {
 
     private Defense newTower;
 
-    protected PlaceTowerState() {
+    protected PlaceTowerState(ButtonAction buttonAction) {
         super();
 
-
+        buttonAction = buttonAction;
         playState = gameStateManager.getPlayState();
         buttons = new ArrayList<>();
-        buttons.add(new PlaceTowerButton(200, 10, this));
+        buttons.add(new PlaceTowerButton(TowerDefense.WIDTH - 300, 10, this, ButtonAction.CREATE_CANNON));
+        buttons.add(new PlaceTowerButton(TowerDefense.WIDTH - 150, 10, this, ButtonAction.CREATE_CANNON));
+
 
 
         mouse = new Vector3(0,0,0);
@@ -125,7 +132,7 @@ public class PlaceTowerState extends State implements ButtonObserver {
     }
 
     @Override
-    public void justClicked() {
+    public void justClicked(ButtonAction buttonAction) {
         gameStateManager.set(playState);
 
     }

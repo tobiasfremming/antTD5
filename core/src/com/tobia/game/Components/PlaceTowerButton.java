@@ -14,8 +14,8 @@ public class PlaceTowerButton extends Button{
     private List<ButtonObserver> observers = new ArrayList<>();
 
 
-    public PlaceTowerButton(int  x, int y, ButtonObserver observer) {
-
+    public PlaceTowerButton(int  x, int y, ButtonObserver observer, ButtonAction buttonAction) {
+        action = buttonAction;
         texture = Textures.PLAY_BUTTON;
         //texture = new Texture("playBtn1.png");
         position = new Vector3(x, y, 0);
@@ -34,7 +34,7 @@ public class PlaceTowerButton extends Button{
             System.out.println(observer);
             System.out.println(observer == GameStateManager.getInstance().peek());
             if (observer == GameStateManager.getInstance().peek())
-                observer.justClicked();
+                observer.justClicked(action);
         }
     }
 
