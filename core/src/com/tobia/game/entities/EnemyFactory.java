@@ -1,7 +1,10 @@
 package com.tobia.game.entities;
 
 import java.util.Random;
-
+/**
+ * The EnemyFactory class is responsible for creating instances of enemies in the game.
+ * It follows the factory pattern, providing a centralized mechanism for enemy creation.
+ */
 public class EnemyFactory {
     private static int amountOfEnemies = 3;
     /**
