@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.tobia.game.TowerDefense;
 import com.tobia.game.Components.Button;
 import com.tobia.game.Components.ButtonObserver;
+import com.tobia.game.Components.HealthBar;
 import com.tobia.game.Components.PlaceTowerButton;
 import com.tobia.game.entities.Ant;
 import com.tobia.game.entities.Defense;
@@ -33,7 +34,7 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
     private Texture backGround;
 
     private float money;
-    private float health;
+    private HealthBar healthBar;
 
     protected PlayState(Map map) {
         super();
@@ -45,8 +46,7 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
 
         // Set the player's money and health
         this.money = 0;
-        this.health = 100;
-
+        this.healthBar = new HealthBar(10, 10, 200, 30);
 
         cam.setToOrtho(false, TowerDefense.WIDTH, TowerDefense.HEIGHT);
         backGround = map.getBackground();
@@ -125,9 +125,7 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
         }
 
         TowerDefense.font.draw(spriteBatch, ("Spenn: " + money), 500, 50);
-
-
-
+        healthBar.render(spriteBatch);
         spriteBatch.end();
     }
 
