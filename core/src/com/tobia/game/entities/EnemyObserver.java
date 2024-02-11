@@ -1,5 +1,6 @@
 package com.tobia.game.entities;
 
+
 /**
  * Interface for observing an enemy
  */
