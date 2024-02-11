@@ -58,6 +58,9 @@ public class HealthBar implements Disposable {
         shapeRenderer.rect(x, y, remainingHealthWidth, height);
         shapeRenderer.end();
 
+        // Begin SpriteBatch again to continue rendering sprites
+        spriteBatch.begin(); 
+
     }
 
     @Override
