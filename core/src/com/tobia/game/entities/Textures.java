@@ -1,10 +1,6 @@
 package com.tobia.game.entities;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.tobia.game.states.GameStateManager;
-import com.tobia.game.states.State;
-
-import java.util.Stack;
 
 public class Textures {
     public static final Texture ANT_TEXTURE = new Texture("antAnimation.png");

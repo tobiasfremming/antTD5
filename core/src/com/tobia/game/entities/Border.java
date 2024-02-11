@@ -3,7 +3,6 @@ package com.tobia.game.entities;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class Border {
 

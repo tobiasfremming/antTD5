@@ -12,16 +12,13 @@ import com.tobia.game.buttons.PlaceTowerButton;
 import com.tobia.game.entities.Ant;
 import com.tobia.game.entities.Defense;
 import com.tobia.game.entities.EnemyObserver;
-import com.tobia.game.entities.Beetle;
 import com.tobia.game.entities.Cannon;
 import com.tobia.game.entities.Enemy;
 import com.tobia.game.entities.EnemyFactory;
-import com.tobia.game.entities.Wasp;
 import com.tobia.game.maps.Map;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * PlayState is the state where the game is played. 

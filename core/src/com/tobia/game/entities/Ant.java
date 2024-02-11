@@ -1,19 +1,9 @@
 package com.tobia.game.entities;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
-import com.tobia.game.TowerDefense;
 import com.tobia.game.maps.Map;
-import com.tobia.game.states.GameStateManager;
-import com.tobia.game.states.PlayState;
-import com.tobia.game.states.State;
-
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 public class Ant extends Enemy{
 

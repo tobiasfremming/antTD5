@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.tobia.game.maps.Map;
-import com.tobia.game.states.PlayState;
 
 public class Wasp extends Enemy {
 
