@@ -17,8 +17,12 @@ import java.util.Random;
 
 public class Ant extends Enemy{
 
-
-
+    /**
+     * Constructor.
+     * @param x coordinate for spawn
+     * @param y coordinate for spawn
+     * @param observer state observer to see if ant is dead
+     */
     public Ant(float x, float y, EnemyObserver observer) {
 
         texture = Textures.ANT_TEXTURE;

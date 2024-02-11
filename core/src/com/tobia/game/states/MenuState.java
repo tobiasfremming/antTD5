@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.tobia.game.TowerDefense;
+import com.tobia.game.entities.Textures;
 import com.tobia.game.maps.Map;
 import com.tobia.game.maps.Map1;
 
@@ -11,10 +12,11 @@ public class MenuState extends State{
 
     private Texture backGround;
     private Texture playBtn;
-    public MenuState(GameStateManager gameStateManager) {
-        super(gameStateManager);
-        backGround = new Texture("backGround1.png");
-        playBtn = new Texture("playBtn1.png");
+    public MenuState() {
+        super();
+        backGround = Textures.backGround;
+        playBtn = Textures.playBtn;
+
 
     }
 
@@ -22,7 +24,7 @@ public class MenuState extends State{
     protected void handleInput() {
         if (Gdx.input.justTouched()){
             Map map = new Map1();
-            gameStateManager.set(new PlayState(gameStateManager, map));
+            gameStateManager.set(new PlayState(map));
         }
 
     }
