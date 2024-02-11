@@ -121,6 +121,12 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
         for (Button button: buttons) {
             button.update(mouse);
         }
+
+
+        // Check for game over
+        if (healthBar.getCurrentHealth() <= 0) {
+            gameStateManager.set(new GameOverState());
+        }
     }
 
     @Override
