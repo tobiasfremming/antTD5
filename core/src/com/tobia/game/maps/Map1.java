@@ -11,7 +11,10 @@ public class Map1 extends Map {
     private final int ROAD_WIDTH = 10;
     private final int DELTA_ROAD = 10;
 
-    public Map1() {
+    public Map1(int width, int height) {
+        this.width = width;
+        this.height = height;
+        
         background = new Texture("mapR1.png");
         System.out.println("bg:");
         System.out.println(background.getWidth());
@@ -34,6 +37,4 @@ public class Map1 extends Map {
     public List<Border> getBorders() {
         return roadBoarders;
     }
-
-
 }

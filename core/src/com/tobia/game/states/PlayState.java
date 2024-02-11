@@ -47,7 +47,8 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
 
         // Set the player's money and health
         this.money = 0;
-        this.healthBar = new HealthBar(10, 10, 200, 30);
+        int maxHealth = 100;
+        this.healthBar = new HealthBar(10, 10, 200, 30, maxHealth);
 
         cam.setToOrtho(false, TowerDefense.WIDTH, TowerDefense.HEIGHT);
         backGround = map.getBackground();
@@ -107,6 +108,16 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
 
         cam.update();
         mouse.set(Gdx.input.getX(), Gdx.graphics.getHeight() - Gdx.input.getY(), 0);
+        buttons.get(0).update(mouse);
+
+        // Check for ants that have reached the end of the map
+        for (Enemy enemy : enemies){
+            if (map.isOutOfBounds(enemy.getPosition().x, enemy.getPosition().y)){
+                antReachedEnd(enemy);
+            }
+        }
+        
+        // Check for buttons that have been clicked
         for (Button button: buttons) {
             button.update(mouse);
         }
@@ -174,7 +185,9 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
 
     @Override
     public void antReachedEnd(Enemy enemy) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'antReachedEnd'");
+        int damage = enemy.getAttackDamage();
+        
+        healthBar.takeDamage((float) damage);
+        enemy.dispose();
     }
 }

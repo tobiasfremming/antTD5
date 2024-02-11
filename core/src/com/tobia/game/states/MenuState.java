@@ -23,7 +23,7 @@ public class MenuState extends State{
     @Override
     protected void handleInput() {
         if (Gdx.input.justTouched()){
-            Map map = new Map1();
+            Map map = new Map1(TowerDefense.WIDTH, TowerDefense.HEIGHT);
             gameStateManager.set(new PlayState(map));
         }
 
