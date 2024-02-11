@@ -9,7 +9,10 @@ public abstract class Button {
     protected Rectangle hitBox;
     protected Vector3 position;
 
+
     public Texture texture;
+
+    protected ButtonAction action;
 
     protected abstract void notifyObservers();
 
