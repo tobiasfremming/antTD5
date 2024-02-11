@@ -92,5 +92,9 @@ public abstract class Enemy {
         return cashForKill;
     }
 
+    public int getAttackDamage(){
+        return this.attack;
+    }
+
 
 }
