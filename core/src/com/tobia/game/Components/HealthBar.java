@@ -47,6 +47,10 @@ public class HealthBar implements Disposable {
         // Ensure health doesn't exceed maxHealth
         currentHealth = Math.min(maxHealth, currentHealth + healAmount); 
     }
+
+    public float getCurrentHealth() {
+        return currentHealth;
+    }
     
     private Color getHealthColor() {
         float healthPercentage = currentHealth / maxHealth;
