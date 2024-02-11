@@ -104,6 +104,13 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
         cam.update();
         mouse.set(Gdx.input.getX(), Gdx.graphics.getHeight() - Gdx.input.getY(), 0);
         buttons.get(0).update(mouse);
+
+        // Check for ants that have reached the end of the map
+        for (Enemy enemy : enemies){
+            if (map.isOutOfBounds(enemy.getPosition().x, enemy.getPosition().y)){
+                antReachedEnd(enemy);
+            }
+        }
     }
 
     @Override
@@ -168,7 +175,9 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
 
     @Override
     public void antReachedEnd(Enemy enemy) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'antReachedEnd'");
+        int damage = enemy.getAttackDamage();
+        
+        healthBar.takeDamage((float) damage);
+        enemy.dispose();
     }
 }

@@ -25,9 +25,19 @@ public class HealthBar implements Disposable {
         this.shapeRenderer = new ShapeRenderer();
     }
 
-    public void setHealthPercentage(float healthPercentage) {
+    public void takeDamage(float damage) {
+        setHealthPercentage(healthPercentage - damage);
+    }
+
+    public void heal(float healAmount) {
+        setHealthPercentage(healthPercentage + healAmount);
+    }
+    
+    private void setHealthPercentage(float healthPercentage) {
         this.healthPercentage = Math.max(0, Math.min(healthPercentage, MAX_HEALTH_PERCENT)); // Ensure the value is between 0 and 1
     }
+
+
 
     private Color getHealthColor(float healthPercentage) {
         // Interpolate between colors based on health percentage
