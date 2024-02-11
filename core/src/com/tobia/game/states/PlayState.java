@@ -37,8 +37,8 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
     private float money;
     private float health;
 
-    protected PlayState(GameStateManager gameStateManager, Map map) {
-        super(gameStateManager);
+    protected PlayState(Map map) {
+        super();
 
         TowerDefense.font = new BitmapFont();
         mouse = new Vector3(0,0,0);
@@ -95,7 +95,7 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
 
     @Override
     public void justClicked() {
-        gameStateManager.setOverlapping(new PlaceTowerState(gameStateManager));
+        gameStateManager.setOverlapping(new PlaceTowerState());
     }
 
     public void antDied(Enemy enemy){

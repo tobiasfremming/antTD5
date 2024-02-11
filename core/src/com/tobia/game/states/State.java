@@ -12,8 +12,8 @@ public abstract class State {
     protected OrthographicCamera cam;
     protected Vector3 mouse;
 
-    protected State(GameStateManager gameStateManager){
-        this.gameStateManager = gameStateManager;
+    protected State(){
+        this.gameStateManager = GameStateManager.getInstance();
         cam = new OrthographicCamera();
         cam.setToOrtho(false, TowerDefense.WIDTH, TowerDefense.HEIGHT);
     }

@@ -26,8 +26,8 @@ public class PlaceTowerState extends State implements ButtonObserver {
 
     private Defense newTower;
 
-    protected PlaceTowerState(GameStateManager gameStateManager) {
-        super(gameStateManager);
+    protected PlaceTowerState() {
+        super();
 
 
         playState = gameStateManager.getPlayState();

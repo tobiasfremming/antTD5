@@ -11,7 +11,7 @@ public class FlameThrower extends Defense{
         fueled = false;
         cost = 0;
         damage = 300;
-        loaded = false;
+        readyToAnimate = false;
         range = 1000;
         position = new Vector3(x,y,0);
         rotation  = 0;
@@ -27,8 +27,8 @@ public class FlameThrower extends Defense{
     @Override
     public void update(float deltaTime) {
 
-        if (loaded){
-            loaded = animation.conditionalUpdate(deltaTime);
+        if (readyToAnimate){
+            readyToAnimate = animation.conditionalUpdate(deltaTime);
 
         }
 

@@ -14,7 +14,6 @@ import com.tobia.game.states.MenuState;
 
 public class TowerDefense extends ApplicationAdapter {
 
-	//public static final Texture ANT_TEXTURE = new Texture("antAnimation.png");
 	public static final int WIDTH = 1000;
 	public static final int HEIGHT = 800;
 
@@ -39,7 +38,7 @@ public class TowerDefense extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		gameStateManager = GameStateManager.getInstance();
 		Gdx.gl.glClearColor(1,0,0,1);
-		gameStateManager.push(new MenuState(gameStateManager));  // kan fjerne litt coupling ved å fjerne gamestateManager fra parameter siden gameStateManager er global
+		gameStateManager.push(new MenuState());
 	}
 
 	@Override

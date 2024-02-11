@@ -16,7 +16,7 @@ public abstract class Defense {
     protected Rectangle rangeCircle;
     protected long lastShotTime;
     protected Animation animation;
-    protected boolean loaded;
+    protected boolean readyToAnimate;
     protected Vector3 position;
     protected int range;
     protected Rectangle hitBox;
@@ -65,7 +65,7 @@ public abstract class Defense {
 
 
     public void shoot(Enemy enemy){
-        loaded = true;
+        readyToAnimate = true;
         enemy.handleHit(damage);
     }
 

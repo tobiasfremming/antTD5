@@ -9,7 +9,7 @@ public class Cannon extends Defense {
         frameCount = 4;
         cost = 50;
         damage = 100;
-        loaded = false;
+        readyToAnimate = false;
         range = 400;
         position = new Vector3(x,y,0);
         rotation  = 0;
@@ -24,8 +24,8 @@ public class Cannon extends Defense {
 
     public void update(float deltaTime){
 
-        if (loaded){
-            loaded = animation.conditionalUpdate(deltaTime);
+        if (readyToAnimate){
+            readyToAnimate = animation.conditionalUpdate(deltaTime);
 
         }
     }
