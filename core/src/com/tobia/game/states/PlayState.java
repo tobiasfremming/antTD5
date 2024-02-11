@@ -47,7 +47,8 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
 
         // Set the player's money and health
         this.money = 0;
-        this.healthBar = new HealthBar(10, 10, 200, 30);
+        int maxHealth = 100;
+        this.healthBar = new HealthBar(10, 10, 200, 30, maxHealth);
 
         cam.setToOrtho(false, TowerDefense.WIDTH, TowerDefense.HEIGHT);
         backGround = map.getBackground();
