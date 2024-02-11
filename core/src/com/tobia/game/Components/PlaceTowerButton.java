@@ -16,7 +16,7 @@ public class PlaceTowerButton extends Button{
 
     public PlaceTowerButton(int  x, int y, ButtonObserver observer) {
 
-        texture = Textures.playBtn;
+        texture = Textures.PLAY_BUTTON;
         //texture = new Texture("playBtn1.png");
         position = new Vector3(x, y, 0);
         hitBox = new Rectangle(position.x, position.y, texture.getWidth(), texture.getHeight());
