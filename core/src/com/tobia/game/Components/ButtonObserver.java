@@ -1,5 +1,5 @@
 package com.tobia.game.Components;
 
 public interface ButtonObserver {
-    void justClicked(ButtonAction buttonAction);
+    void justClicked(TowerType buttonAction);
 }

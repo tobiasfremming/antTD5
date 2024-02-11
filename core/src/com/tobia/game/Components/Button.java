@@ -12,7 +12,7 @@ public abstract class Button {
 
     public Texture texture;
 
-    protected ButtonAction action;
+    protected TowerType action;
 
     protected abstract void notifyObservers();
 
