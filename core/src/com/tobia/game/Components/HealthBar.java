@@ -11,7 +11,8 @@ public class HealthBar implements Disposable {
     private float width;
     private float height;
     private float healthPercentage;
-
+    private static final float MAX_HEALTH_PERCENT = 1.0f;
+    
     private ShapeRenderer shapeRenderer;
 
     public HealthBar(float x, float y, float width, float height) {
@@ -19,13 +20,13 @@ public class HealthBar implements Disposable {
         this.y = y;
         this.width = width;
         this.height = height;
-        this.healthPercentage = 1.0f;
+        this.healthPercentage = MAX_HEALTH_PERCENT;
 
         this.shapeRenderer = new ShapeRenderer();
     }
 
     public void setHealthPercentage(float healthPercentage) {
-        this.healthPercentage = Math.max(0, Math.min(healthPercentage, 1.0f)); // Ensure the value is between 0 and 1
+        this.healthPercentage = Math.max(0, Math.min(healthPercentage, MAX_HEALTH_PERCENT)); // Ensure the value is between 0 and 1
     }
 
     private Color getHealthColor(float healthPercentage) {
