@@ -3,6 +3,16 @@
 Insects walking to their or your doom.
 
 ## Getting Started
+To get started, you need to clone the repository to your local machine. You can do this by running the following command in your terminal:
+```cmd
+git clone https://github.com/tobiasfremming/antTD5
+```
+
+## Usage
+To run the game type the following command in the terminal:
+```cmd
+gradlew desktop:run
+```
 
 
 ## Contributors
