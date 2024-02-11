@@ -14,8 +14,8 @@ public class MenuState extends State{
     private Texture playBtn;
     public MenuState() {
         super();
-        backGround = Textures.backGround;
-        playBtn = Textures.playBtn;
+        backGround = Textures.BACKGROUND;
+        playBtn = Textures.PLAY_BUTTON;
 
 
     }
@@ -46,7 +46,6 @@ public class MenuState extends State{
     @Override
     public void dispose() {
         backGround.dispose();
-        playBtn.dispose();
         System.out.println("Menu state disposed");
 
     }
