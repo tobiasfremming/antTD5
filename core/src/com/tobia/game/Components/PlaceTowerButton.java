@@ -1,6 +1,5 @@
 package com.tobia.game.Components;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.tobia.game.entities.Textures;
@@ -14,7 +13,7 @@ public class PlaceTowerButton extends Button{
     private List<ButtonObserver> observers = new ArrayList<>();
 
 
-    public PlaceTowerButton(int  x, int y, ButtonObserver observer, ButtonAction buttonAction) {
+    public PlaceTowerButton(int  x, int y, ButtonObserver observer, TowerType buttonAction) {
         action = buttonAction;
         texture = Textures.PLAY_BUTTON;
         //texture = new Texture("playBtn1.png");

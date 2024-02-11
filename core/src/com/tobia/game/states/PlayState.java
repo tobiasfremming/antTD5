@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
-import com.tobia.game.Components.ButtonAction;
+import com.tobia.game.Components.TowerType;
 import com.tobia.game.TowerDefense;
 import com.tobia.game.Components.Button;
 import com.tobia.game.Components.ButtonObserver;
@@ -65,8 +65,8 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
         towers.add(new Cannon(700, 600));
 
         buttons = new ArrayList<>();
-        buttons.add(new PlaceTowerButton(TowerDefense.WIDTH - 300, 10, this, ButtonAction.CREATE_CANNON));
-        buttons.add(new PlaceTowerButton(TowerDefense.WIDTH - 150, 10, this, ButtonAction.CREATE_FLAMETHROWER));
+        buttons.add(new PlaceTowerButton(TowerDefense.WIDTH - 300, 10, this, TowerType.CANNON));
+        buttons.add(new PlaceTowerButton(TowerDefense.WIDTH - 150, 10, this, TowerType.FLAMETHROWER));
 
 
     }
@@ -80,7 +80,7 @@ public class PlayState extends State implements EnemyObserver, ButtonObserver {
     }
 
     @Override
-    public void justClicked(ButtonAction buttonAction) {
+    public void justClicked(TowerType buttonAction) {
 
         gameStateManager.setOverlapping(new PlaceTowerState(buttonAction));
     }

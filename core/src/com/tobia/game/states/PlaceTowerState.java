@@ -1,6 +1,6 @@
 package com.tobia.game.states;
 
-import com.tobia.game.Components.ButtonAction;
+import com.tobia.game.Components.TowerType;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -14,6 +14,7 @@ import com.tobia.game.entities.Border;
 import com.tobia.game.entities.Cannon;
 import com.tobia.game.entities.Defense;
 import com.tobia.game.entities.FlameThrower;
+import com.tobia.game.entities.TowerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class PlaceTowerState extends State implements ButtonObserver {
 
     PlayState playState;
 
-    ButtonAction buttonAction;
+    TowerType towerType;
     List<Rectangle> hitboxList;
 
     Vector3 mouse;
@@ -31,19 +32,19 @@ public class PlaceTowerState extends State implements ButtonObserver {
 
     private Defense newTower;
 
-    protected PlaceTowerState(ButtonAction buttonAction) {
+    protected PlaceTowerState(TowerType buttonAction) {
         super();
 
-        buttonAction = buttonAction;
+        towerType = buttonAction;
         playState = gameStateManager.getPlayState();
         buttons = new ArrayList<>();
-        buttons.add(new PlaceTowerButton(TowerDefense.WIDTH - 300, 10, this, ButtonAction.CREATE_CANNON));
-        buttons.add(new PlaceTowerButton(TowerDefense.WIDTH - 150, 10, this, ButtonAction.CREATE_CANNON));
+        buttons.add(new PlaceTowerButton(TowerDefense.WIDTH - 300, 10, this, TowerType.CANNON));
+        buttons.add(new PlaceTowerButton(TowerDefense.WIDTH - 150, 10, this, TowerType.CANNON));
 
 
 
         mouse = new Vector3(0,0,0);
-        newTower = new Cannon(mouse.x, mouse.y);
+        newTower = TowerFactory.create(mouse.x, mouse.y, towerType);
 
         hitboxList = new ArrayList<>();
         List <Border> borders= playState.getMap().getBorders();
@@ -78,19 +79,16 @@ public class PlaceTowerState extends State implements ButtonObserver {
     protected void handleInput() {
 
         if (Gdx.input.justTouched()){
-            FlameThrower cannon = new FlameThrower(mouse.x, mouse.y);
-            if (checkAvailableSpot(cannon)){
-                float cost = cannon.getCost();
+            Defense tower = TowerFactory.create(mouse.x, mouse.y, towerType);
+            if (checkAvailableSpot(tower)){
+                float cost = tower.getCost();
                 if (playState.getMoney() >= cost){
                     playState.pay(cost);
-                    playState.addCannons(cannon); // må av en eller annen grunn legge til en ny kannon her. Den gamle fungerer ikke riktig.
+                    playState.addCannons(tower); // må av en eller annen grunn legge til en ny kannon her. Den gamle fungerer ikke riktig.
                     gameStateManager.set(playState);
                 }
-
             }
-
         }
-
     }
 
     @Override
@@ -98,7 +96,9 @@ public class PlaceTowerState extends State implements ButtonObserver {
 
         mouse.set(Gdx.input.getX(), Gdx.graphics.getHeight() - Gdx.input.getY(), 0);
 
-        buttons.get(0).update(mouse);
+        for (Button button: buttons) {
+            button.update(mouse);
+        }
 
         newTower.update(mouse.x, mouse.y);
 
@@ -132,7 +132,7 @@ public class PlaceTowerState extends State implements ButtonObserver {
     }
 
     @Override
-    public void justClicked(ButtonAction buttonAction) {
+    public void justClicked(TowerType buttonAction) {
         gameStateManager.set(playState);
 
     }

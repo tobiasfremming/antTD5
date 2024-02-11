@@ -6,7 +6,7 @@ import java.util.Random;
  * It follows the factory pattern, providing a centralized mechanism for enemy creation.
  */
 public class EnemyFactory {
-    private static int amountOfEnemies = 3;
+    private static final int AMOUNT_OF_ENEMIES = 3;
     /**
      * Creates an enemy for the game
      * @param x x-coordinate
@@ -17,7 +17,7 @@ public class EnemyFactory {
      */
     public static Enemy create(float x, float y, EnemyObserver observer) throws IllegalArgumentException {
         Random random = new Random();
-        int randomNumber = random.nextInt(0, amountOfEnemies);
+        int randomNumber = random.nextInt(0, AMOUNT_OF_ENEMIES);
         switch (randomNumber) {
             case 0:
                 return new Ant(x, y, observer);
