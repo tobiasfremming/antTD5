@@ -2,6 +2,16 @@
 
 Insects walking to their or your doom.
 
+
+<div>
+  
+<img src="https://github.com/tobiasfremming/antTD5/assets/45819661/e06c6888-3b6c-455c-a1be-a8d39713a1b8"
+  />
+</div>
+
+
+
+
 ## Getting Started
 To get started, you need to clone the repository to your local machine. You can do this by running the following command in your terminal:
 ```cmd
